@@ -1,0 +1,1612 @@
+/* ============================================================
+   NJ Army National Guard — Main Stylesheet
+   style.css
+   ============================================================ */
+
+/* ── Reset & Root ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold:      #C9A02A;
+  --gold-l:    #E8C96A;
+  --gold-d:    #8B6E19;
+  --ag:        #4A5C3A;
+  --ad:        #2C3823;
+  --adp:       #1A2315;
+  --tan:       #B5A882;
+  --tan-l:     #E8DFC8;
+  --off:       #F4F1EB;
+  --red:       #8B1A1A;
+
+  /* Category colors */
+  --c-combat:   #c97070;
+  --c-intel:    #7098c9;
+  --c-medical:  #70c98b;
+  --c-engineer: #c9a870;
+  --c-aviation: #a870c9;
+  --c-logistics:#70c9c9;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--adp);
+  color: var(--off);
+  overflow-x: hidden;
+}
+
+/* ── Scroll Progress Bar ──────────────────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: var(--gold);
+  z-index: 200;
+  width: 0%;
+  transition: width 0.08s linear;
+}
+
+/* ── Navigation ───────────────────────────────────────────── */
+#navbar {
+  position: fixed;
+  top: 0; width: 100%;
+  z-index: 100;
+  background: rgba(26, 35, 21, 0.97);
+  border-bottom: 1px solid rgba(201, 160, 42, 0.25);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 62px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-seal {
+  width: 40px; height: 40px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--adp);
+  text-align: center;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.nav-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nav-title span {
+  display: block;
+  font-size: 9px;
+  font-weight: 400;
+  color: var(--tan);
+  letter-spacing: 0.18em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0;
+  list-style: none;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0 0.85rem;
+  height: 62px;
+  line-height: 62px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--tan-l);
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s;
+  border-bottom: 3px solid transparent;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+  background: rgba(201, 160, 42, 0.06);
+  border-bottom-color: var(--gold);
+}
+
+.nav-links .nav-cta {
+  background: var(--gold) !important;
+  color: var(--adp) !important;
+  border-radius: 2px;
+  font-weight: 700 !important;
+}
+
+.nav-links .nav-cta:hover {
+  background: var(--gold-l) !important;
+  border-bottom-color: transparent !important;
+}
+
+.nav-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+}
+
+#mobile-menu {
+  display: none;
+  position: fixed;
+  top: 62px; left: 0; right: 0;
+  background: rgba(26, 35, 21, 0.98);
+  z-index: 99;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(201, 160, 42, 0.2);
+}
+
+#mobile-menu.open { display: block; }
+
+#mobile-menu a {
+  display: block;
+  padding: 0.6rem 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tan-l);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 160, 42, 0.08);
+}
+
+#mobile-menu a:hover { color: var(--gold); }
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.hero {
+  height: 100vh;
+  min-height: 680px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ─ Image slot: replace .hero-image-slot with your photo ─ */
+.hero-image-slot {
+  position: absolute;
+  inset: 0;
+  background: var(--ad);          /* fallback color if no image */
+  z-index: 0;
+}
+
+/* When you add an <img> inside .hero-image-slot: */
+.hero-image-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 35, 21, 0.96) 0%,
+    rgba(44, 56, 35, 0.80) 45%,
+    rgba(26, 35, 21, 0.72) 100%
+  );
+  z-index: 1;
+}
+
+.hero-grid-bg {
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg,   transparent, transparent 59px, rgba(201,160,42,0.05) 60px),
+    repeating-linear-gradient(90deg,  transparent, transparent 59px, rgba(201,160,42,0.05) 60px);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  padding-top: 62px;
+}
+
+.hero-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-tag::before {
+  content: '';
+  display: inline-block;
+  width: 28px; height: 1px;
+  background: var(--gold);
+}
+
+.hero h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 700;
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.6rem;
+  max-width: 640px;
+}
+
+.hero h1 .accent { color: var(--gold); display: block; }
+
+.hero-sub {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--tan-l);
+  max-width: 460px;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.hero-stats {
+  position: absolute;
+  right: 3rem; bottom: 3rem;
+  z-index: 2;
+  display: flex;
+  gap: 2rem;
+}
+
+.hero-stat .stat-num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.hero-stat .stat-lbl {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tan);
+  margin-top: 3px;
+}
+
+.hero-scroll-line {
+  position: absolute;
+  left: 3rem; bottom: 0;
+  width: 1px; height: 70px;
+  background: linear-gradient(to bottom, rgba(201,160,42,0.6), transparent);
+  z-index: 2;
+}
+
+/* ── Ticker ───────────────────────────────────────────────── */
+.ticker-bar {
+  background: var(--gold);
+  color: var(--adp);
+  padding: 9px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker-inner {
+  display: inline-block;
+  animation: ticker-scroll 50s linear infinite;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(100vw); }
+  to   { transform: translateX(-100%); }
+}
+
+.ticker-sep { margin: 0 2rem; opacity: 0.45; }
+
+/* ── Shared Section Styles ────────────────────────────────── */
+.section { padding: 5rem 0; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.section-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 22px; height: 1px;
+  background: var(--gold);
+}
+
+.section-h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 1.4rem;
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: var(--gold);
+  color: var(--adp);
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-primary:hover { background: var(--gold-l); transform: translateY(-2px); }
+
+.btn-outline {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border: 1px solid rgba(201, 160, 42, 0.5);
+  color: var(--gold-l);
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  background: none;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+
+.btn-outline:hover {
+  border-color: var(--gold);
+  background: rgba(201, 160, 42, 0.08);
+  transform: translateY(-2px);
+}
+
+.btn-dark {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  background: var(--adp);
+  color: var(--gold);
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  border: 1px solid rgba(201, 160, 42, 0.3);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-dark:hover { background: var(--ag); }
+
+.btn-full { width: 100%; text-align: center; padding: 1rem; font-size: 15px; letter-spacing: 0.2em; }
+
+/* ── Mission Section ──────────────────────────────────────── */
+.mission-section {
+  background: var(--ad);
+  border-top: 1px solid rgba(201, 160, 42, 0.12);
+  border-bottom: 1px solid rgba(201, 160, 42, 0.12);
+}
+
+.mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+
+.mission-text p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--tan-l);
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+.mission-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2rem; }
+
+.pillar {
+  background: rgba(201, 160, 42, 0.06);
+  border: 1px solid rgba(201, 160, 42, 0.18);
+  border-radius: 4px;
+  padding: 1.25rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.pillar:hover { border-color: rgba(201, 160, 42, 0.45); background: rgba(201, 160, 42, 0.1); }
+
+.pillar-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
+
+.pillar h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.pillar p { font-size: 0.82rem; line-height: 1.6; color: var(--tan); font-weight: 300; }
+
+/* ── Roadmap Steps ────────────────────────────────────────── */
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(201, 160, 42, 0.06);
+  border: 1px solid rgba(201, 160, 42, 0.15);
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.step-item:hover { border-color: rgba(201, 160, 42, 0.4); background: rgba(201, 160, 42, 0.1); }
+.step-item:last-child { border-color: rgba(201, 160, 42, 0.35); background: rgba(201, 160, 42, 0.09); }
+
+.step-num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: rgba(201, 160, 42, 0.3);
+  line-height: 1;
+  min-width: 2rem;
+}
+
+.step-item:last-child .step-num { color: var(--gold); }
+
+.step-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.step-desc { font-size: 0.78rem; color: var(--tan); font-weight: 300; }
+.step-item:last-child .step-desc { color: var(--tan-l); }
+
+/* ── Image Strip (photo placeholders) ────────────────────── */
+.photo-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(201, 160, 42, 0.08);
+}
+
+/* ─ PHOTO PLACEHOLDER ─────────────────────────────────────
+   To add real photos:
+   1. Drop your image files into /images/
+   2. Find the .photo-slot with the matching data-slot name
+   3. Add:  style="background-image: url('images/your-photo.jpg'); background-size: cover; background-position: center;"
+   4. Remove the inner placeholder text/icon if desired
+   ───────────────────────────────────────────────────────── */
+.photo-slot {
+  aspect-ratio: 4 / 3;
+  background: var(--ad);
+  border: 2px dashed rgba(201, 160, 42, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.photo-slot:hover { border-color: rgba(201, 160, 42, 0.5); }
+
+.photo-slot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;           /* set to 1 once you add real images */
+  transition: opacity 0.3s;
+}
+
+.photo-slot img.loaded { opacity: 0.75; }
+
+.photo-placeholder-icon {
+  font-size: 2rem;
+  opacity: 0.25;
+}
+
+.photo-placeholder-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(201, 160, 42, 0.4);
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* ── MOS Explorer ─────────────────────────────────────────── */
+.mos-section {
+  background: rgba(44, 56, 35, 0.35);
+  border-top: 1px solid rgba(201, 160, 42, 0.1);
+  border-bottom: 1px solid rgba(201, 160, 42, 0.1);
+}
+
+.mos-controls {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.mos-search {
+  flex: 1;
+  min-width: 220px;
+  background: rgba(201, 160, 42, 0.06);
+  border: 1px solid rgba(201, 160, 42, 0.25);
+  border-radius: 4px;
+  padding: 0.7rem 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--off);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.mos-search::placeholder { color: var(--tan); }
+.mos-search:focus { border-color: var(--gold); }
+
+.filter-btn {
+  background: rgba(201, 160, 42, 0.06);
+  border: 1px solid rgba(201, 160, 42, 0.2);
+  border-radius: 4px;
+  padding: 0.6rem 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--off);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  border-color: var(--gold);
+  background: rgba(201, 160, 42, 0.12);
+  color: var(--gold);
+}
+
+.mos-count {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--tan);
+  margin-bottom: 1rem;
+}
+
+.mos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  max-height: 580px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.mos-grid::-webkit-scrollbar { width: 4px; }
+.mos-grid::-webkit-scrollbar-track { background: rgba(201, 160, 42, 0.05); }
+.mos-grid::-webkit-scrollbar-thumb { background: rgba(201, 160, 42, 0.3); border-radius: 2px; }
+
+.mos-card {
+  background: var(--ad);
+  border: 1px solid rgba(201, 160, 42, 0.12);
+  border-radius: 4px;
+  padding: 1.2rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.mos-card:hover {
+  border-color: rgba(201, 160, 42, 0.45);
+  background: rgba(74, 92, 58, 0.4);
+  transform: translateY(-2px);
+}
+
+.mos-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.mos-code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+
+.bonus-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5a9a5a;
+  background: rgba(90, 154, 90, 0.12);
+  border: 1px solid rgba(90, 154, 90, 0.3);
+  border-radius: 2px;
+  padding: 2px 6px;
+}
+
+.mos-card h4 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--off);
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+}
+
+.mos-card p {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--tan);
+  font-weight: 300;
+  margin-bottom: 0.7rem;
+}
+
+.mos-card-meta {
+  display: flex;
+  gap: 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: rgba(181, 168, 130, 0.6);
+  text-transform: uppercase;
+}
+
+/* Category badges */
+.cat-badge {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 2px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.cat-combat   { background: rgba(201,112,112,0.15); color: var(--c-combat);   border: 1px solid rgba(201,112,112,0.3); }
+.cat-intel    { background: rgba(112,152,201,0.15); color: var(--c-intel);    border: 1px solid rgba(112,152,201,0.3); }
+.cat-medical  { background: rgba(112,201,139,0.15); color: var(--c-medical);  border: 1px solid rgba(112,201,139,0.3); }
+.cat-engineer { background: rgba(201,168,112,0.15); color: var(--c-engineer); border: 1px solid rgba(201,168,112,0.3); }
+.cat-aviation { background: rgba(168,112,201,0.15); color: var(--c-aviation); border: 1px solid rgba(168,112,201,0.3); }
+.cat-logistics{ background: rgba(112,201,201,0.15); color: var(--c-logistics);border: 1px solid rgba(112,201,201,0.3); }
+
+/* ── Mission Quiz ─────────────────────────────────────────── */
+.quiz-section {
+  background: var(--adp);
+  border-top: 1px solid rgba(201, 160, 42, 0.1);
+}
+
+.quiz-wrapper {
+  max-width: 680px;
+  margin: 2.5rem auto 0;
+}
+
+.quiz-progress-bar {
+  width: 100%;
+  height: 3px;
+  background: rgba(201, 160, 42, 0.12);
+  border-radius: 2px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.quiz-step {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.quiz-step.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.quiz-q-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.quiz-q-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.quiz-q-text {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--off);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.quiz-answers { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.quiz-answer-btn {
+  width: 100%;
+  text-align: left;
+  padding: 1rem 1.25rem;
+  background: var(--ad);
+  border: 1px solid rgba(201, 160, 42, 0.18);
+  border-radius: 4px;
+  color: var(--tan-l);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.quiz-answer-btn:hover {
+  border-color: var(--gold);
+  background: rgba(201, 160, 42, 0.08);
+  color: var(--gold-l);
+}
+
+.quiz-answer-btn.selected {
+  border-color: var(--gold);
+  background: rgba(201, 160, 42, 0.15);
+  color: var(--gold);
+}
+
+.quiz-result {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+  animation: fadeIn 0.4s ease;
+}
+
+.quiz-result.active { display: block; }
+
+.quiz-result-icon { font-size: 3rem; margin-bottom: 0.75rem; }
+
+.quiz-result-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.quiz-result-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.quiz-result-desc {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--tan-l);
+  font-weight: 300;
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+}
+
+.quiz-result-mos {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.quiz-mos-pill {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 2px;
+  border: 1px solid rgba(201, 160, 42, 0.3);
+  background: rgba(201, 160, 42, 0.08);
+  color: var(--gold);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.quiz-mos-pill:hover { background: rgba(201, 160, 42, 0.18); }
+
+/* ── Armory Map ───────────────────────────────────────────── */
+.armories-section { background: var(--ad); border-top: 1px solid rgba(201, 160, 42, 0.1); }
+
+.armory-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.armory-list { list-style: none; margin-top: 1.5rem; }
+
+.armory-item {
+  padding: 1rem;
+  border: 1px solid rgba(201, 160, 42, 0.12);
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.armory-item:hover, .armory-item.active {
+  border-color: rgba(201, 160, 42, 0.45);
+  background: rgba(74, 92, 58, 0.35);
+  transform: translateX(4px);
+}
+
+.armory-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.4rem;
+}
+
+.armory-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+
+.armory-drill-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201, 160, 42, 0.1);
+  border: 1px solid rgba(201, 160, 42, 0.2);
+  border-radius: 2px;
+  padding: 2px 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.armory-addr {
+  font-size: 0.8rem;
+  color: var(--tan);
+  margin-bottom: 0.35rem;
+  font-weight: 300;
+}
+
+.armory-recruiter {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: rgba(181, 168, 130, 0.65);
+  margin-bottom: 0.3rem;
+}
+
+.armory-phone {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--gold-l);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+.armory-phone:hover { color: var(--gold); }
+
+/* Map Panel */
+.map-panel {
+  background: rgba(201, 160, 42, 0.04);
+  border: 1px solid rgba(201, 160, 42, 0.18);
+  border-radius: 4px;
+  padding: 1.5rem;
+  position: sticky;
+  top: 80px;
+}
+
+#armory-map {
+  width: 100%;
+  border-radius: 2px;
+  display: block;
+}
+
+.map-detail {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(201, 160, 42, 0.12);
+  min-height: 80px;
+}
+
+.map-detail-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+
+.map-detail-info {
+  font-size: 0.8rem;
+  color: var(--tan);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.map-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(181, 168, 130, 0.4);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* ── Eligibility Section ──────────────────────────────────── */
+.eligibility-section {
+  background: rgba(44, 56, 35, 0.4);
+  border-top: 1px solid rgba(201, 160, 42, 0.1);
+}
+
+.elig-form-wrap {
+  background: var(--ad);
+  border: 1px solid rgba(201, 160, 42, 0.15);
+  border-radius: 4px;
+  padding: 2.5rem;
+  max-width: 720px;
+  margin: 2.5rem auto 0;
+}
+
+.elig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+.field-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tan);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.field-input {
+  width: 100%;
+  background: rgba(201, 160, 42, 0.06);
+  border: 1px solid rgba(201, 160, 42, 0.2);
+  border-radius: 4px;
+  padding: 0.7rem 1rem;
+  font-family: 'Source Serif 4', serif;
+  font-size: 0.9rem;
+  color: var(--off);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.field-input:focus { border-color: var(--gold); }
+
+select.field-input option { background: var(--ad); color: var(--off); }
+
+input[type="range"].field-input {
+  padding: 0.3rem 0;
+  background: transparent;
+  border: none;
+  accent-color: var(--gold);
+}
+
+.range-value {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gold);
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.elig-result {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(90, 154, 90, 0.08);
+  border: 1px solid rgba(90, 154, 90, 0.25);
+  border-radius: 4px;
+  margin-top: 1.5rem;
+  animation: fadeIn 0.4s ease;
+}
+
+.elig-score {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.elig-status-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+
+.elig-message {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--tan-l);
+  font-weight: 300;
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+}
+
+.elig-recs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.5rem; text-align: left; }
+
+.elig-rec-card {
+  background: var(--ad);
+  border: 1px solid rgba(201, 160, 42, 0.15);
+  border-radius: 4px;
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.elig-rec-card:hover { border-color: rgba(201, 160, 42, 0.4); }
+
+.elig-rec-mos {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+
+.elig-rec-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--off);
+  margin-top: 0.2rem;
+  line-height: 1.2;
+}
+
+/* ── Benefits ─────────────────────────────────────────────── */
+.benefits-section {
+  background: var(--ag);
+  border-top: 1px solid rgba(201, 160, 42, 0.18);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+.benefit-item {
+  padding: 1.2rem 0.8rem;
+  border-top: 2px solid rgba(201, 160, 42, 0.35);
+  transition: border-top-color 0.2s;
+}
+
+.benefit-item:hover { border-top-color: var(--gold); }
+
+.benefit-icon { font-size: 1.4rem; margin-bottom: 0.6rem; }
+
+.benefit-item h4 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+
+.benefit-item p { font-size: 0.78rem; line-height: 1.55; color: var(--tan-l); font-weight: 300; }
+
+/* ── Gallery / Photo Section ──────────────────────────────── */
+.gallery-section {
+  background: var(--adp);
+  border-top: 1px solid rgba(201, 160, 42, 0.1);
+}
+
+/* ─ GALLERY IMAGE PLACEHOLDER INSTRUCTIONS ────────────────
+   To replace placeholders with real photos:
+   1. Add your image files to /images/
+   2. In index.html, find the .gallery-item with matching data-slot
+   3. Set background-image on .gallery-item:
+      style="background-image: url('images/training.jpg'); background-size: cover; background-position: center;"
+   4. Set the opacity on the overlay to 0 or lower
+   ────────────────────────────────────────────────────────── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 200px 200px;
+  gap: 4px;
+  margin-top: 2.5rem;
+}
+
+.gallery-item {
+  background: var(--ad);
+  border: 2px dashed rgba(201, 160, 42, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.gallery-item:hover { border-color: rgba(201, 160, 42, 0.45); }
+.gallery-item:first-child { grid-row: span 2; }
+
+/* When image is added: */
+.gallery-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.gallery-item:hover img { opacity: 0.85; transform: scale(1.03); }
+
+.gallery-placeholder-icon { font-size: 1.8rem; opacity: 0.2; }
+
+.gallery-placeholder-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(201, 160, 42, 0.35);
+  text-align: center;
+  padding: 0 0.75rem;
+}
+
+/* ── CTA Banner ───────────────────────────────────────────── */
+.cta-banner {
+  background: var(--gold);
+  padding: 3.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-banner::before {
+  content: 'NJNG';
+  position: absolute;
+  right: 2rem; top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Oswald', sans-serif;
+  font-size: 10rem;
+  font-weight: 700;
+  color: rgba(44, 56, 35, 0.1);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.cta-inner {
+  position: relative; z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cta-banner h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--adp);
+  line-height: 1.1;
+}
+
+.cta-banner p { font-size: 0.9rem; color: var(--ad); margin-top: 0.4rem; font-weight: 300; }
+
+.cta-buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+/* ── Modals ───────────────────────────────────────────────── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-overlay.open { display: flex; }
+
+.modal-box {
+  background: var(--ad);
+  border: 1px solid rgba(201, 160, 42, 0.25);
+  border-radius: 6px;
+  padding: 2rem;
+  max-width: 560px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: fadeIn 0.25s ease;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  background: none;
+  border: none;
+  color: var(--tan);
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.modal-close:hover { color: var(--gold); }
+
+.modal-box h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+
+.modal-subtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tan);
+  margin-bottom: 1.5rem;
+}
+
+.modal-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+
+.modal-info-box {
+  background: rgba(201, 160, 42, 0.06);
+  border: 1px solid rgba(201, 160, 42, 0.18);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.modal-info-box h5 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.modal-info-box p {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--off);
+}
+
+.modal-desc-text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--tan-l);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.modal-bonus-bar {
+  background: rgba(90, 154, 90, 0.1);
+  border: 1px solid rgba(90, 154, 90, 0.3);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #70c98b;
+}
+
+.modal-action-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+/* Contact Form inside modal */
+.contact-form-field {
+  margin-bottom: 0.75rem;
+}
+
+.contact-form-field input,
+.contact-form-field textarea,
+.contact-form-field select {
+  width: 100%;
+  background: rgba(201, 160, 42, 0.06);
+  border: 1px solid rgba(201, 160, 42, 0.2);
+  border-radius: 4px;
+  padding: 0.7rem 1rem;
+  font-family: 'Source Serif 4', serif;
+  font-size: 0.88rem;
+  color: var(--off);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.contact-form-field input:focus,
+.contact-form-field textarea:focus,
+.contact-form-field select:focus { border-color: var(--gold); }
+
+.contact-form-field select option { background: var(--ad); }
+
+.contact-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+
+.contact-form-row input {
+  width: 100%;
+  background: rgba(201, 160, 42, 0.06);
+  border: 1px solid rgba(201, 160, 42, 0.2);
+  border-radius: 4px;
+  padding: 0.7rem 1rem;
+  font-family: 'Source Serif 4', serif;
+  font-size: 0.88rem;
+  color: var(--off);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.contact-form-row input:focus { border-color: var(--gold); }
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(90, 154, 90, 0.1);
+  border: 1px solid rgba(90, 154, 90, 0.3);
+  border-radius: 4px;
+  margin-top: 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: #70c98b;
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+footer {
+  background: #0C1108;
+  border-top: 1px solid rgba(201, 160, 42, 0.18);
+  padding: 3rem 0 1.5rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.footer-brand-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.footer-brand p {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--tan);
+  margin-top: 0.75rem;
+  font-weight: 300;
+  max-width: 240px;
+}
+
+.footer-col h4 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.5rem; }
+
+.footer-col ul a {
+  font-size: 0.8rem;
+  color: var(--tan);
+  text-decoration: none;
+  transition: color 0.2s;
+  font-weight: 300;
+}
+
+.footer-col ul a:hover { color: var(--gold-l); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(201, 160, 42, 0.1);
+  padding-top: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.footer-bottom p {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: rgba(181, 168, 130, 0.4);
+  text-transform: uppercase;
+}
+
+.footer-flag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: rgba(181, 168, 130, 0.4);
+  text-transform: uppercase;
+}
+
+/* ── Toast Notification ───────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--ad);
+  border: 1px solid rgba(201, 160, 42, 0.4);
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  z-index: 500;
+  transition: transform 0.35s ease;
+  white-space: nowrap;
+}
+
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .armory-layout { grid-template-columns: 1fr; }
+  .map-panel { position: static; }
+}
+
+@media (max-width: 900px) {
+  .mission-grid,
+  .elig-grid,
+  .footer-grid      { grid-template-columns: 1fr; }
+  .benefits-grid    { grid-template-columns: repeat(2, 1fr); }
+  .elig-recs        { grid-template-columns: 1fr 1fr; }
+  .hero-stats       { position: relative; right: auto; bottom: auto; margin-top: 2rem; flex-wrap: wrap; }
+  .nav-links        { display: none; }
+  .nav-menu-btn     { display: block; }
+  .cta-inner        { flex-direction: column; }
+  .modal-info-grid  { grid-template-columns: 1fr; }
+  .photo-strip      { grid-template-columns: 1fr; }
+  .gallery-grid     { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .gallery-item:first-child { grid-row: span 1; }
+  .footer-grid      { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .hero-content     { padding: 0 1.5rem; padding-top: 62px; }
+  .container        { padding: 0 1.5rem; }
+  .benefits-grid    { grid-template-columns: 1fr; }
+  .elig-recs        { grid-template-columns: 1fr; }
+  .footer-grid      { grid-template-columns: 1fr; }
+  #navbar           { padding: 0 1rem; }
+  .gallery-grid     { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .contact-form-row { grid-template-columns: 1fr; }
+}

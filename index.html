@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="New Jersey Army National Guard — Citizen Soldier Portal. Explore 150+ MOS careers, find armories, check eligibility, and enlist.">
+  <meta name="theme-color" content="#1A2315">
+  <title>NJ Army National Guard | Citizen Soldier Portal</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Scroll Progress Bar -->
+<div id="scroll-progress"></div>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast"></div>
+
+<!-- ══ NAVIGATION ══════════════════════════════════════════════ -->
+<nav id="navbar">
+  <a href="#" class="nav-brand">
+    <div class="nav-seal">NJ<br>ARNG</div>
+    <div class="nav-title">
+      New Jersey Army National Guard
+      <span>Citizen Soldier Portal</span>
+    </div>
+  </a>
+
+  <ul class="nav-links" role="navigation" aria-label="Main navigation">
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#quiz">Quiz</a></li>
+    <li><a href="#mos">150+ MOS</a></li>
+    <li><a href="#armories">Armories</a></li>
+    <li><a href="#eligibility">Eligibility</a></li>
+    <li><a href="#gallery">Photos</a></li>
+    <li><a href="#benefits">Benefits</a></li>
+    <li><a href="#" class="nav-cta" onclick="openModal('contact');return false">Apply Now</a></li>
+  </ul>
+
+  <button class="nav-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">MENU</button>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" aria-hidden="true">
+  <a href="#mission"     onclick="closeMobileMenu()">Mission</a>
+  <a href="#quiz"        onclick="closeMobileMenu()">Mission Quiz</a>
+  <a href="#mos"         onclick="closeMobileMenu()">MOS Careers</a>
+  <a href="#armories"    onclick="closeMobileMenu()">Find an Armory</a>
+  <a href="#eligibility" onclick="closeMobileMenu()">Eligibility Check</a>
+  <a href="#gallery"     onclick="closeMobileMenu()">Photos</a>
+  <a href="#benefits"    onclick="closeMobileMenu()">Benefits</a>
+  <a href="#" onclick="openModal('contact');closeMobileMenu();return false">Apply Now</a>
+</div>
+
+
+<!-- ══ HERO ════════════════════════════════════════════════════ -->
+<section class="hero" id="top">
+
+  <!--
+  ═══════════════════════════════════════════════════════════════
+  HERO BACKGROUND IMAGE — ADD YOUR PHOTO HERE
+  ───────────────────────────────────────────────────────────────
+  1. Add your image file to the /images/ folder
+  2. Replace the src below with your filename:
+        src="images/YOUR-PHOTO.jpg"
+  3. The image will automatically appear with opacity overlay.
+     Adjust opacity on line:  style="opacity: 0.45"
+  ═══════════════════════════════════════════════════════════════
+  -->
+  <div class="hero-image-slot">
+    <img
+      src=""
+      data-slot="hero-background"
+      alt="NJ Army National Guard soldiers"
+      style="opacity:0.45"
+      onerror="this.style.display='none'"
+    >
+    <!-- Placeholder shown when no image is loaded -->
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.04">
+      <span style="font-family:'Oswald',sans-serif;font-size:18vw;font-weight:700;color:#C9A02A;letter-spacing:-.02em">NJNG</span>
+    </div>
+  </div>
+
+  <div class="hero-overlay"></div>
+  <div class="hero-grid-bg"></div>
+
+  <div class="hero-content" data-reveal>
+    <div class="hero-tag">Always Ready · Always There · Est. 1755</div>
+    <h1>
+      Own Your<br>Future,
+      <span class="accent">Serve NJ.</span>
+    </h1>
+    <p class="hero-sub">
+      Join the NJ Army National Guard — keep your civilian life while earning leadership training,
+      100% tuition waiver, up to $20K bonus, and professional skills that last a lifetime.
+    </p>
+    <div class="hero-buttons">
+      <button class="btn-primary" onclick="document.getElementById('eligibility').scrollIntoView({behavior:'smooth'})">
+        Check Eligibility
+      </button>
+      <button class="btn-outline" onclick="document.getElementById('mos').scrollIntoView({behavior:'smooth'})">
+        Browse 150+ MOS
+      </button>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="stat-num">150+</div>
+        <div class="stat-lbl">MOS Careers</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">11</div>
+        <div class="stat-lbl">NJ Armories</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">$20K</div>
+        <div class="stat-lbl">Max Bonus</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">269</div>
+        <div class="stat-lbl">Yrs of Service</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-line"></div>
+</section>
+
+
+<!-- ══ TICKER ══════════════════════════════════════════════════ -->
+<div class="ticker-bar" aria-hidden="true">
+  <div class="ticker-inner">
+    Always Ready, Always There
+    <span class="ticker-sep">◆</span>
+    100% NJ Tuition Waiver
+    <span class="ticker-sep">◆</span>
+    150+ MOS Career Paths
+    <span class="ticker-sep">◆</span>
+    Citizen Soldiers · Community Heroes
+    <span class="ticker-sep">◆</span>
+    Up to $20,000 Enlistment Bonus
+    <span class="ticker-sep">◆</span>
+    Part-Time Service · Full-Time Benefits
+    <span class="ticker-sep">◆</span>
+    Protecting New Jersey Since 1755
+    <span class="ticker-sep">◆</span>
+    Always Ready, Always There
+    <span class="ticker-sep">◆</span>
+    100% NJ Tuition Waiver
+    <span class="ticker-sep">◆</span>
+    150+ MOS Career Paths
+    <span class="ticker-sep">◆</span>
+  </div>
+</div>
+
+
+<!-- ══ MISSION ═════════════════════════════════════════════════ -->
+<section class="section mission-section" id="mission">
+  <div class="container">
+    <div class="mission-grid">
+
+      <div class="mission-text" data-reveal>
+        <div class="section-label">Our Mission</div>
+        <h2 class="section-h2">One Weekend<br>a Month.<br>Two Missions.</h2>
+        <p>
+          The New Jersey Army National Guard serves a dual mission: providing trained, ready units
+          to support the U.S. Army overseas — and protecting life and property here at home during
+          natural disasters and civil emergencies.
+        </p>
+        <p>
+          As citizen-soldiers, our Guardsmen maintain civilian careers and lives while remaining
+          ready to answer the call whenever and wherever needed — neighbors, colleagues, and
+          protectors of the Garden State.
+        </p>
+        <div class="mission-pillars">
+          <div class="pillar">
+            <div class="pillar-icon">⚔️</div>
+            <h3>Federal Mission</h3>
+            <p>Supporting active Army operations and national defense worldwide.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🏠</div>
+            <h3>State Mission</h3>
+            <p>Responding to NJ disasters, storms, and civil emergencies.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🎓</div>
+            <h3>Training</h3>
+            <p>World-class military and leadership training that transfers to civilian careers.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🤝</div>
+            <h3>Community</h3>
+            <p>Deeply rooted in NJ — neighbors serving neighbors since 1755.</p>
+          </div>
+        </div>
+        <div style="margin-top:2rem">
+          <button class="btn-primary" onclick="openModal('contact')">Talk to a Recruiter</button>
+        </div>
+      </div>
+
+      <div data-reveal>
+        <div class="section-label">5-Step Roadmap</div>
+        <h3 style="font-family:'Oswald',sans-serif;font-size:1.3rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--off);margin-bottom:1.25rem">
+          Your Path to Enlistment
+        </h3>
+
+        <div class="step-item">
+          <span class="step-num">1</span>
+          <div><strong class="step-title">Talk to a Recruiter</strong><span class="step-desc">Get your questions answered and find the right path for your goals.</span></div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">2</span>
+          <div><strong class="step-title">Practice ASVAB</strong><span class="step-desc">Take a diagnostic and explore MOS options that fit your scores.</span></div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">3</span>
+          <div><strong class="step-title">Medical + MEPS</strong><span class="step-desc">Complete physical and qualification screening at MEPS.</span></div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">4</span>
+          <div><strong class="step-title">Choose Your MOS</strong><span class="step-desc">Select a role aligned to your goals and civilian interests.</span></div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">5</span>
+          <div><strong class="step-title">Ship to Training</strong><span class="step-desc">Begin Basic Combat Training — your mission starts here.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ MISSION QUIZ ════════════════════════════════════════════ -->
+<section class="section quiz-section" id="quiz">
+  <div class="container">
+    <div style="text-align:center" data-reveal>
+      <div class="section-label" style="justify-content:center">Mission Match</div>
+      <h2 class="section-h2">Find Your Ideal MOS</h2>
+      <p style="font-size:.95rem;color:var(--tan-l);max-width:480px;margin:0 auto;font-weight:300;line-height:1.7">
+        Answer 4 quick questions and we'll match you to your best-fit career path in the Guard.
+      </p>
+    </div>
+    <!-- Quiz content is injected here by js/quiz.js -->
+    <div class="quiz-wrapper" id="quiz-wrapper">
+      <p style="text-align:center;color:var(--tan);font-size:.85rem;padding:2rem">Loading quiz...</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ MOS EXPLORER ════════════════════════════════════════════ -->
+<section class="section mos-section" id="mos">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem" data-reveal>
+      <div>
+        <div class="section-label">Career Explorer</div>
+        <h2 class="section-h2" style="margin-bottom:0">150+ Military<br>Occupational Specialties</h2>
+      </div>
+      <p style="font-size:.85rem;color:var(--tan);max-width:320px;font-weight:300;line-height:1.6">
+        From cyber warfare to combat medicine — search and filter every career in the NJ Guard.
+      </p>
+    </div>
+
+    <!-- Search + Filter Controls -->
+    <div class="mos-controls">
+      <input type="text" class="mos-search" id="mos-search"
+             placeholder="Search MOS code, title, or keyword..."
+             aria-label="Search MOS careers">
+      <button class="filter-btn active" data-cat="all">All</button>
+      <button class="filter-btn" data-cat="combat">Combat</button>
+      <button class="filter-btn" data-cat="intel">Intel / Cyber</button>
+      <button class="filter-btn" data-cat="medical">Medical</button>
+      <button class="filter-btn" data-cat="engineer">Engineering</button>
+      <button class="filter-btn" data-cat="aviation">Aviation</button>
+      <button class="filter-btn" data-cat="logistics">Logistics</button>
+    </div>
+
+    <div class="mos-count" id="mos-count" aria-live="polite">Loading careers...</div>
+
+    <!-- MOS Grid — populated by js/mos.js -->
+    <div class="mos-grid" id="mos-grid" role="list" aria-label="MOS Career Cards">
+      <p style="color:var(--tan);font-size:.85rem;padding:2rem">Loading careers...</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ ARMORIES MAP ════════════════════════════════════════════ -->
+<section class="section armories-section" id="armories">
+  <div class="container">
+    <div data-reveal>
+      <div class="section-label">Find Your Armory</div>
+      <h2 class="section-h2">11 NJ Armory Locations</h2>
+      <p style="font-size:.9rem;color:var(--tan-l);max-width:520px;font-weight:300;line-height:1.7;margin-bottom:1rem">
+        Drill times, recruiter contacts, phone numbers, and units for every armory across New Jersey.
+      </p>
+      <!-- Region filter buttons -->
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem">
+        <button class="filter-btn active" onclick="filterArmories('all');  this.closest('div').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active')">All Regions</button>
+        <button class="filter-btn" onclick="filterArmories('north'); this.closest('div').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active')">North NJ</button>
+        <button class="filter-btn" onclick="filterArmories('central');this.closest('div').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active')">Central NJ</button>
+        <button class="filter-btn" onclick="filterArmories('south'); this.closest('div').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active')">South NJ</button>
+      </div>
+    </div>
+
+    <div class="armory-layout">
+      <!-- Armory List — populated by js/armories.js -->
+      <ul class="armory-list" id="armory-list" role="list" aria-label="NJ Guard Armory Locations">
+        <li style="color:var(--tan);font-size:.85rem;padding:1rem">Loading armories...</li>
+      </ul>
+
+      <!-- Map Panel -->
+      <div class="map-panel">
+        <!-- SVG map injected by js/armories.js -->
+        <div id="armory-map"></div>
+        <div class="map-label">Click any dot or list item to see details</div>
+        <div class="map-detail" id="armory-map-detail"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ ELIGIBILITY CHECKER ═════════════════════════════════════ -->
+<section class="section eligibility-section" id="eligibility">
+  <div class="container">
+    <div style="text-align:center" data-reveal>
+      <div class="section-label" style="justify-content:center">Pre-Screen Tool</div>
+      <h2 class="section-h2">Check Your Eligibility</h2>
+      <p style="font-size:.95rem;color:var(--tan-l);max-width:520px;margin:0 auto;font-weight:300;line-height:1.7">
+        Answer a few quick questions to get your personalized eligibility score and recommended MOS careers.
+        Recruiters can help with waivers for any requirements you don't fully meet.
+      </p>
+    </div>
+
+    <div class="elig-form-wrap" data-reveal>
+      <form id="elig-form">
+        <div class="elig-grid">
+          <div>
+            <label class="field-label" for="e-age">Age</label>
+            <input type="range" class="field-input" id="e-age" min="16" max="42" value="25">
+            <span class="range-value" id="age-display">25</span>
+          </div>
+          <div>
+            <label class="field-label" for="e-edu">Education Level</label>
+            <select class="field-input" id="e-edu">
+              <option value="none">No diploma</option>
+              <option value="ged">GED</option>
+              <option value="hs" selected>High School Diploma</option>
+              <option value="college">Some College / Degree</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label" for="e-cit">Citizenship</label>
+            <select class="field-input" id="e-cit">
+              <option value="no">Not U.S. Citizen / PR</option>
+              <option value="pr">Permanent Resident</option>
+              <option value="us" selected>U.S. Citizen</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label" for="e-asvab">Estimated ASVAB GT Score</label>
+            <input type="range" class="field-input" id="e-asvab" min="70" max="140" value="100">
+            <span class="range-value" id="asvab-display">100</span>
+          </div>
+          <div>
+            <label class="field-label" for="e-prior">Prior Military Service</label>
+            <select class="field-input" id="e-prior">
+              <option value="no" selected>No Prior Service</option>
+              <option value="ng">National Guard</option>
+              <option value="active">Active Duty</option>
+              <option value="reserve">Reserve</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label" for="e-cat">Area of Interest</label>
+            <select class="field-input" id="e-cat">
+              <option value="any">Any / Undecided</option>
+              <option value="combat">Combat Arms</option>
+              <option value="intel">Intelligence / Cyber</option>
+              <option value="medical">Medical</option>
+              <option value="engineer">Engineering</option>
+              <option value="aviation">Aviation</option>
+              <option value="logistics">Logistics / Support</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary btn-full" style="margin-top:1.5rem">
+          Calculate My Eligibility →
+        </button>
+      </form>
+
+      <!-- Result — populated by js/eligibility.js -->
+      <div id="elig-result" class="elig-result" aria-live="polite">
+        <div class="elig-score" id="elig-score">—</div>
+        <div class="elig-status-label" id="elig-status">—</div>
+        <p class="elig-message" id="elig-msg"></p>
+        <div class="elig-recs" id="elig-recs"></div>
+        <button class="btn-primary" onclick="openModal('contact')">Talk to a Recruiter →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PHOTO GALLERY ═══════════════════════════════════════════ -->
+<section class="section gallery-section" id="gallery">
+  <div class="container">
+    <div data-reveal>
+      <div class="section-label">Photo Gallery</div>
+      <h2 class="section-h2">Life in the Guard</h2>
+      <p style="font-size:.88rem;color:var(--tan);font-weight:300;line-height:1.6;max-width:480px">
+        Add your own photos below. Drop image files into <code style="font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:var(--gold)">/images/</code>
+        and update the <code style="font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:var(--gold)">src</code> attributes in the HTML.
+      </p>
+    </div>
+
+    <!--
+    ═══════════════════════════════════════════════════════════════
+    GALLERY PHOTO SLOTS — HOW TO ADD YOUR IMAGES
+    ───────────────────────────────────────────────────────────────
+    For each .gallery-item below:
+    1.  Add your photo file to the /images/ folder
+    2.  Uncomment the <img> tag inside and set the src
+    3.  The placeholder icon + text will auto-hide once src is set
+    ═══════════════════════════════════════════════════════════════
+    -->
+    <div class="gallery-grid" data-reveal>
+
+      <!-- LARGE featured photo (spans 2 rows) -->
+      <div class="gallery-item" data-slot="photo-featured">
+        <!-- <img src="images/YOUR-PHOTO-1.jpg" alt="Guard soldiers in training"> -->
+        <div class="gallery-placeholder-icon">📸</div>
+        <div class="gallery-placeholder-text">Featured Photo<br>Add to /images/</div>
+      </div>
+
+      <!-- Top right -->
+      <div class="gallery-item" data-slot="photo-2">
+        <!-- <img src="images/YOUR-PHOTO-2.jpg" alt="Armory drill"> -->
+        <div class="gallery-placeholder-icon">📷</div>
+        <div class="gallery-placeholder-text">Photo 2</div>
+      </div>
+
+      <!-- Middle right -->
+      <div class="gallery-item" data-slot="photo-3">
+        <!-- <img src="images/YOUR-PHOTO-3.jpg" alt="Community service"> -->
+        <div class="gallery-placeholder-icon">📷</div>
+        <div class="gallery-placeholder-text">Photo 3</div>
+      </div>
+
+      <!-- Bottom row -->
+      <div class="gallery-item" data-slot="photo-4">
+        <!-- <img src="images/YOUR-PHOTO-4.jpg" alt="Equipment training"> -->
+        <div class="gallery-placeholder-icon">📷</div>
+        <div class="gallery-placeholder-text">Photo 4</div>
+      </div>
+
+      <div class="gallery-item" data-slot="photo-5">
+        <!-- <img src="images/YOUR-PHOTO-5.jpg" alt="Soldiers at ceremony"> -->
+        <div class="gallery-placeholder-icon">📷</div>
+        <div class="gallery-placeholder-text">Photo 5</div>
+      </div>
+
+    </div>
+
+    <!-- Photo Strip below grid (additional 3 spots) -->
+    <div class="photo-strip" style="margin-top:4px">
+      <div class="photo-slot" data-slot="photo-strip-1">
+        <!-- <img src="images/YOUR-PHOTO-6.jpg" alt=""> -->
+        <div class="photo-placeholder-icon">📷</div>
+        <div class="photo-placeholder-label">Strip Photo 1<br>/images/</div>
+      </div>
+      <div class="photo-slot" data-slot="photo-strip-2">
+        <!-- <img src="images/YOUR-PHOTO-7.jpg" alt=""> -->
+        <div class="photo-placeholder-icon">📷</div>
+        <div class="photo-placeholder-label">Strip Photo 2<br>/images/</div>
+      </div>
+      <div class="photo-slot" data-slot="photo-strip-3">
+        <!-- <img src="images/YOUR-PHOTO-8.jpg" alt=""> -->
+        <div class="photo-placeholder-icon">📷</div>
+        <div class="photo-placeholder-label">Strip Photo 3<br>/images/</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ BENEFITS ════════════════════════════════════════════════ -->
+<section class="section benefits-section" id="benefits">
+  <div class="container">
+    <div class="section-label">Why Serve</div>
+    <h2 class="section-h2">More Than a Weekend</h2>
+    <p style="font-size:.95rem;color:var(--tan-l);max-width:520px;font-weight:300;line-height:1.75">
+      Serving in the NJNG comes with world-class benefits that support you, your education,
+      and your family — building a foundation that lasts your entire career and beyond.
+    </p>
+    <div class="benefits-grid" data-reveal>
+      <div class="benefit-item"><div class="benefit-icon">🎓</div><h4>100% Tuition Waiver</h4><p>Full tuition at any NJ state college through the NJ National Guard Tuition Program.</p></div>
+      <div class="benefit-item"><div class="benefit-icon">💰</div><h4>Enlistment Bonuses</h4><p>Up to $20,000 for qualifying MOS positions and prior-service members joining the Guard.</p></div>
+      <div class="benefit-item"><div class="benefit-icon">🏥</div><h4>Healthcare</h4><p>Access to TRICARE health coverage for you and your family during activated service.</p></div>
+      <div class="benefit-item"><div class="benefit-icon">🏦</div><h4>Military Retirement</h4><p>Pension starting at age 60 after 20 qualifying years of service in the National Guard.</p></div>
+      <div class="benefit-item"><div class="benefit-icon">🎽</div><h4>Skills Training</h4><p>Technical and leadership credentials that advance your civilian career and professional growth.</p></div>
+      <div class="benefit-item"><div class="benefit-icon">🏠</div><h4>VA Home Loans</h4><p>VA-backed home loans with no down payment required after qualifying service periods.</p></div>
+      <div class="benefit-item"><div class="benefit-icon">✈️</div><h4>Travel & Adventure</h4><p>Train and deploy across the U.S. and worldwide alongside fellow NJ citizen-soldiers.</p></div>
+      <div class="benefit-item"><div class="benefit-icon">🛡️</div><h4>Split Training Option</h4><p>Attend Basic Training between your junior and senior year of high school — finish school before AIT.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CTA BANNER ══════════════════════════════════════════════ -->
+<div class="cta-banner">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <h2>Ready to Serve<br>New Jersey?</h2>
+        <p>Talk to a recruiter today — 24-hour follow-up guaranteed.</p>
+      </div>
+      <div class="cta-buttons">
+        <a href="tel:1-800-522-0936" class="btn-dark">📞 1-800-522-0936</a>
+        <button class="btn-dark" onclick="openModal('contact')">Contact a Recruiter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-name">NJ Army National Guard</div>
+        <p>Serving the citizens of New Jersey and the United States since 1755. Always Ready. Always There.</p>
+        <p style="margin-top:.75rem;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.15em;color:rgba(181,168,130,.4);text-transform:uppercase">
+          Joint Force HQ – New Jersey<br>Lawrenceville, NJ 08648<br>📞 1-800-522-0936
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Soldiers</h4>
+        <ul>
+          <li><a href="#">myPay</a></li>
+          <li><a href="#">AKO / milSuite</a></li>
+          <li><a href="#">Training Schedules</a></li>
+          <li><a href="#">Travel Vouchers</a></li>
+          <li><a href="#">Family Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Recruiting</h4>
+        <ul>
+          <li><a href="#eligibility">Check Eligibility</a></li>
+          <li><a href="#mos">MOS Explorer</a></li>
+          <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#armories">Find an Armory</a></li>
+          <li><a href="#" onclick="openModal('contact');return false">Contact Recruiter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">History</a></li>
+          <li><a href="#">Leadership</a></li>
+          <li><a href="#armories">Units & Armories</a></li>
+          <li><a href="#">News Room</a></li>
+          <li><a href="#" onclick="openModal('contact');return false">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 New Jersey Army National Guard · An official U.S. Government website · Equal Opportunity Employer</p>
+      <div class="footer-flag"><span>🇺🇸</span><span>Always Ready · Always There</span></div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ══ MOS DETAIL MODAL ════════════════════════════════════════ -->
+<div class="modal-overlay" id="mos-modal"
+     role="dialog" aria-modal="true" aria-labelledby="mos-modal-title">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('mos')" aria-label="Close modal">✕</button>
+    <div id="mos-modal-cat"></div>
+    <h2 id="mos-modal-title"></h2>
+    <div class="modal-subtitle" id="mos-modal-code"></div>
+    <p class="modal-desc-text" id="mos-modal-desc"></p>
+    <div class="modal-info-grid">
+      <div class="modal-info-box">
+        <h5>ASVAB Requirement</h5>
+        <p id="mos-modal-asvab"></p>
+      </div>
+      <div class="modal-info-box">
+        <h5>Training Length</h5>
+        <p id="mos-modal-training"></p>
+      </div>
+    </div>
+    <div class="modal-bonus-bar" id="mos-modal-bonus" style="display:none">
+      ✦ Bonus Eligible — Special enlistment incentives available for this MOS
+    </div>
+    <div class="modal-action-row">
+      <button class="btn-primary" onclick="openModal('contact');closeModal('mos')">Talk to a Recruiter →</button>
+      <button class="btn-outline" onclick="closeModal('mos')">Close</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ CONTACT MODAL ═══════════════════════════════════════════ -->
+<div class="modal-overlay" id="contact-modal"
+     role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('contact')" aria-label="Close modal">✕</button>
+    <h2 id="contact-modal-title">Contact a Recruiter</h2>
+    <p class="modal-subtitle" style="margin-bottom:1.25rem">Our team responds within 24 hours</p>
+
+    <form id="contact-form">
+      <div class="contact-form-row">
+        <input type="text" placeholder="First Name *" required aria-label="First Name">
+        <input type="text" placeholder="Last Name *"  required aria-label="Last Name">
+      </div>
+      <div class="contact-form-field">
+        <input type="email" placeholder="Email Address *" required aria-label="Email">
+      </div>
+      <div class="contact-form-field">
+        <input type="tel" placeholder="Phone Number *" required aria-label="Phone">
+      </div>
+      <div class="contact-form-field">
+        <input type="text" placeholder="ZIP Code" maxlength="5" aria-label="ZIP Code">
+      </div>
+      <div class="contact-form-field">
+        <select required aria-label="Area of Interest">
+          <option value="">What interests you?</option>
+          <option>Specific MOS / Career</option>
+          <option>Eligibility Questions</option>
+          <option>Tuition / Bonus Benefits</option>
+          <option>Split Training Option</option>
+          <option>General Information</option>
+        </select>
+      </div>
+      <div class="contact-form-field">
+        <textarea placeholder="Tell us your goals, questions, or any specific MOS codes you're interested in..." rows="3" aria-label="Message"></textarea>
+      </div>
+      <button type="submit" class="btn-primary btn-full">Send Message →</button>
+    </form>
+
+    <div id="contact-success" class="form-success">
+      ✓ MESSAGE SENT — Your recruiter will contact you within 24 hours.
+      Check your email and phone.
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ SCRIPTS ═════════════════════════════════════════════════ -->
+<script src="js/main.js"></script>
+<script src="js/mos.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/armories.js"></script>
+<script src="js/eligibility.js"></script>
+
+<script>
+  // Boot all modules after DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    initMOS();
+    initQuiz();
+    initArmories();
+    initEligibility();
+  });
+</script>
+
+</body>
+</html>

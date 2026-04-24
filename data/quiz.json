@@ -1,0 +1,99 @@
+{
+  "title": "Mission Match Quiz",
+  "subtitle": "4 questions to find your ideal MOS path",
+  "questions": [
+    {
+      "id": 1,
+      "text": "What type of work excites you most?",
+      "icon": "⚡",
+      "answers": [
+        { "text": "Physical action and leading in the field",        "scores": { "combat": 3, "aviation": 1 } },
+        { "text": "Technology, computers, and problem solving",       "scores": { "intel": 3, "engineer": 1 } },
+        { "text": "Helping and caring for people",                   "scores": { "medical": 3, "logistics": 1 } },
+        { "text": "Building, engineering, and fixing things",        "scores": { "engineer": 3, "logistics": 1 } },
+        { "text": "Flying, aviation, or piloting systems",           "scores": { "aviation": 3, "intel": 1 } }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "How would your friends describe you?",
+      "icon": "🤝",
+      "answers": [
+        { "text": "Bold, decisive, and a natural leader",            "scores": { "combat": 3, "medical": 1 } },
+        { "text": "Analytical, detail-oriented, and precise",        "scores": { "intel": 3, "engineer": 1 } },
+        { "text": "Compassionate, calm under pressure",              "scores": { "medical": 3, "logistics": 1 } },
+        { "text": "Creative, hands-on, and mechanically inclined",   "scores": { "engineer": 3, "aviation": 1 } },
+        { "text": "Organized, reliable, and a great coordinator",    "scores": { "logistics": 3, "intel": 1 } }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "What do you want your civilian career to look like?",
+      "icon": "🎯",
+      "answers": [
+        { "text": "Law enforcement, firefighting, or emergency services", "scores": { "combat": 2, "medical": 2 } },
+        { "text": "Cybersecurity, IT, or software engineering",          "scores": { "intel": 3, "engineer": 1 } },
+        { "text": "Healthcare, nursing, or paramedicine",               "scores": { "medical": 3, "logistics": 1 } },
+        { "text": "Construction, electrical, or mechanical trades",     "scores": { "engineer": 3, "aviation": 1 } },
+        { "text": "Airline pilot, mechanic, or aviation industry",      "scores": { "aviation": 3, "intel": 1 } },
+        { "text": "Logistics, supply chain, or operations management",  "scores": { "logistics": 3, "engineer": 1 } }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "What matters most to you in your Guard service?",
+      "icon": "🏆",
+      "answers": [
+        { "text": "Being on the front lines, protecting the mission",     "scores": { "combat": 3, "aviation": 1 } },
+        { "text": "Using advanced technology and intelligence",           "scores": { "intel": 3, "engineer": 1 } },
+        { "text": "Saving lives and supporting soldier health",           "scores": { "medical": 3, "logistics": 1 } },
+        { "text": "Building and maintaining critical infrastructure",     "scores": { "engineer": 3, "logistics": 1 } },
+        { "text": "Operating aircraft and supporting air operations",     "scores": { "aviation": 3, "combat": 1 } }
+      ]
+    }
+  ],
+  "results": {
+    "combat": {
+      "label": "Combat Arms",
+      "icon": "⚔️",
+      "desc": "You're mission-oriented, decisive, and built for action. Combat Arms roles put you at the forefront of military operations.",
+      "topMOS": ["11B", "19D", "13F", "31B", "14E"],
+      "color": "#c97070"
+    },
+    "intel": {
+      "label": "Intelligence & Cyber",
+      "icon": "🖥️",
+      "desc": "You think critically and love technology. Intelligence and Cyber roles offer cutting-edge work with national security impact.",
+      "topMOS": ["17C", "35F", "25B", "35P", "25D"],
+      "color": "#7098c9"
+    },
+    "medical": {
+      "label": "Medical",
+      "icon": "🩺",
+      "desc": "You're driven to help others. Medical MOS careers build elite healthcare skills while serving soldiers in the field and in garrison.",
+      "topMOS": ["68W", "68C", "18D", "68K", "68A"],
+      "color": "#70c98b"
+    },
+    "engineer": {
+      "label": "Engineering",
+      "icon": "⚙️",
+      "desc": "You're hands-on and mechanically gifted. Engineering roles build real infrastructure skills that translate directly to civilian trades.",
+      "topMOS": ["12B", "12N", "12P", "12M", "91A"],
+      "color": "#c9a870"
+    },
+    "aviation": {
+      "label": "Aviation",
+      "icon": "✈️",
+      "desc": "You're drawn to the sky. Aviation roles offer elite training on attack helicopters, unmanned systems, and fixed-wing aircraft.",
+      "topMOS": ["15T", "15R", "15C", "15U", "15Q"],
+      "color": "#a870c9"
+    },
+    "logistics": {
+      "label": "Logistics & Support",
+      "icon": "📦",
+      "desc": "You keep operations running. Logistics and support roles build management, coordination, and operations skills for civilian careers.",
+      "topMOS": ["92A", "88M", "42A", "38B", "25V"],
+      "color": "#70c9c9"
+    }
+  }
+}
