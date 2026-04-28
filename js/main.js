@@ -146,9 +146,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
 });
 
+/* ── FAQ Toggle ─────────────────────────────────────────────── */
+function toggleFAQ(btn) {
+  const answer = btn.nextElementSibling;
+  const arrow  = btn.querySelector('.faq-arrow');
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-a.open').forEach(a => {
+    a.classList.remove('open');
+    const prevArrow = a.previousElementSibling.querySelector('.faq-arrow');
+    if (prevArrow) prevArrow.style.transform = '';
+  });
+  if (!isOpen) {
+    answer.classList.add('open');
+    if (arrow) arrow.style.transform = 'rotate(180deg)';
+  }
+}
+
 // Expose globally for inline onclick handlers
-window.openModal       = openModal;
-window.closeModal      = closeModal;
+window.openModal        = openModal;
+window.closeModal       = closeModal;
 window.toggleMobileMenu = toggleMobileMenu;
 window.closeMobileMenu  = closeMobileMenu;
 window.showToast        = showToast;
+window.toggleFAQ        = toggleFAQ;

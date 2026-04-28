@@ -37,10 +37,12 @@
     <li><a href="#mission">Mission</a></li>
     <li><a href="#quiz">Quiz</a></li>
     <li><a href="#mos">150+ MOS</a></li>
+    <li><a href="#pay">Pay</a></li>
+    <li><a href="#training">Training</a></li>
     <li><a href="#armories">Armories</a></li>
     <li><a href="#eligibility">Eligibility</a></li>
-    <li><a href="#gallery">Photos</a></li>
     <li><a href="#benefits">Benefits</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#" class="nav-cta" onclick="openModal('contact');return false">Apply Now</a></li>
   </ul>
 
@@ -52,10 +54,14 @@
   <a href="#mission"     onclick="closeMobileMenu()">Mission</a>
   <a href="#quiz"        onclick="closeMobileMenu()">Mission Quiz</a>
   <a href="#mos"         onclick="closeMobileMenu()">MOS Careers</a>
+  <a href="#pay"         onclick="closeMobileMenu()">Pay &amp; Compensation</a>
+  <a href="#training"    onclick="closeMobileMenu()">Training Pipeline</a>
   <a href="#armories"    onclick="closeMobileMenu()">Find an Armory</a>
   <a href="#eligibility" onclick="closeMobileMenu()">Eligibility Check</a>
-  <a href="#gallery"     onclick="closeMobileMenu()">Photos</a>
+  <a href="#compare"     onclick="closeMobileMenu()">Guard vs Active</a>
   <a href="#benefits"    onclick="closeMobileMenu()">Benefits</a>
+  <a href="#faq"         onclick="closeMobileMenu()">FAQ</a>
+  <a href="#events"      onclick="closeMobileMenu()">Events</a>
   <a href="#" onclick="openModal('contact');closeMobileMenu();return false">Apply Now</a>
 </div>
 
@@ -239,6 +245,55 @@
 </section>
 
 
+<!-- ══ TESTIMONIALS ═══════════════════════════════════════════ -->
+<section class="section testimonials-section" id="testimonials">
+  <div class="container">
+    <div style="text-align:center" data-reveal>
+      <div class="section-label" style="justify-content:center">Soldier Stories</div>
+      <h2 class="section-h2">Voices of the Guard</h2>
+      <p style="font-size:.95rem;color:var(--tan-l);max-width:480px;margin:0 auto 3rem;font-weight:300;line-height:1.7">
+        Real NJ Guardsmen. Real missions. Real impact — on their lives and their community.
+      </p>
+    </div>
+    <div class="testimonials-grid" data-reveal>
+      <div class="testimonial-card">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-text">The Guard paid for my entire nursing degree while I served on weekends. I went from high school graduate to RN to Army Captain — all while staying home in New Jersey.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">CPT</div>
+          <div>
+            <div class="testi-name">Capt. Maria Torres</div>
+            <div class="testi-unit">68W · Combat Medic · 3/114th Infantry</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card testi-featured">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-text">I deployed twice, earned my sergeant's stripes, and used the GI Bill to finish my computer science degree. The Guard gave me discipline and direction when I needed it most.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SGT</div>
+          <div>
+            <div class="testi-name">Sgt. Darnell Williams</div>
+            <div class="testi-unit">25U · Signal Support · 50th Infantry Brigade</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-text">As a 12R electrician in the Guard, I trained on real Army power systems. My civilian salary doubled because of the security clearance and hands-on skills I earned serving part-time.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SSG</div>
+          <div>
+            <div class="testi-name">SSG Jason Park</div>
+            <div class="testi-unit">12R · Interior Electrician · 21st Engineer Bn</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- ══ MISSION QUIZ ════════════════════════════════════════════ -->
 <section class="section quiz-section" id="quiz">
   <div class="container">
@@ -289,6 +344,135 @@
     <!-- MOS Grid — populated by js/mos.js -->
     <div class="mos-grid" id="mos-grid" role="list" aria-label="MOS Career Cards">
       <p style="color:var(--tan);font-size:.85rem;padding:2rem">Loading careers...</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PAY & COMPENSATION ════════════════════════════════════ -->
+<section class="section pay-section" id="pay">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem" data-reveal>
+      <div>
+        <div class="section-label">Compensation</div>
+        <h2 class="section-h2" style="margin-bottom:0">Know What<br>You'll Earn</h2>
+      </div>
+      <p style="font-size:.88rem;color:var(--tan);max-width:340px;font-weight:300;line-height:1.7">
+        Guard members are paid for every drill weekend, annual training, and deployment — on top of your civilian salary.
+      </p>
+    </div>
+    <div class="pay-grid" data-reveal>
+      <div class="pay-panel">
+        <div class="pay-panel-header">Monthly Drill Pay by Rank</div>
+        <p class="pay-panel-sub">Based on 1 drill weekend (4 drill periods) — all figures are in addition to your civilian income.</p>
+        <table class="pay-table">
+          <thead>
+            <tr><th>Rank</th><th>Title</th><th>Drill Weekend</th><th>Annual AT (2 wks)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="pay-rank">E-1</td><td>Private</td><td>~$296</td><td>~$1,480</td></tr>
+            <tr><td class="pay-rank">E-3</td><td>Private First Class</td><td>~$360</td><td>~$1,798</td></tr>
+            <tr><td class="pay-rank">E-4</td><td>Specialist</td><td>~$399</td><td>~$1,994</td></tr>
+            <tr><td class="pay-rank">E-5</td><td>Sergeant</td><td>~$448</td><td>~$2,238</td></tr>
+            <tr><td class="pay-rank">E-6</td><td>Staff Sergeant</td><td>~$520</td><td>~$2,600</td></tr>
+            <tr><td class="pay-rank">O-1</td><td>2nd Lieutenant</td><td>~$640</td><td>~$3,200</td></tr>
+            <tr><td class="pay-rank">O-3</td><td>Captain</td><td>~$920</td><td>~$4,600</td></tr>
+          </tbody>
+        </table>
+        <p class="pay-note">* Approximate 2026 rates. Pay increases with time in service (TIS) and time in grade (TIG).</p>
+      </div>
+      <div class="pay-extras">
+        <div class="pay-extra-card">
+          <div class="pay-extra-icon">🎓</div>
+          <div class="pay-extra-label">Tuition Waiver</div>
+          <div class="pay-extra-val">100%</div>
+          <p>Full tuition at any NJ state college through the NJNG Tuition Program.</p>
+        </div>
+        <div class="pay-extra-card">
+          <div class="pay-extra-icon">💰</div>
+          <div class="pay-extra-label">Enlistment Bonus</div>
+          <div class="pay-extra-val">Up to $20K</div>
+          <p>One-time bonus for select MOS positions and prior-service joiners.</p>
+        </div>
+        <div class="pay-extra-card">
+          <div class="pay-extra-icon">🏥</div>
+          <div class="pay-extra-label">TRICARE</div>
+          <div class="pay-extra-val">Available</div>
+          <p>Low-cost TRICARE Reserve Select for you and your family year-round.</p>
+        </div>
+        <div class="pay-extra-card">
+          <div class="pay-extra-icon">🏦</div>
+          <div class="pay-extra-label">Retirement</div>
+          <div class="pay-extra-val">Age 60</div>
+          <p>Monthly pension beginning at 60 after 20 qualifying years of service.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ TRAINING PIPELINE ══════════════════════════════════════ -->
+<section class="section training-section" id="training">
+  <div class="container">
+    <div style="text-align:center" data-reveal>
+      <div class="section-label" style="justify-content:center">Training Path</div>
+      <h2 class="section-h2">From Civilian<br>to Soldier</h2>
+      <p style="font-size:.95rem;color:var(--tan-l);max-width:480px;margin:0 auto 3rem;font-weight:300;line-height:1.7">
+        Here's exactly what the journey from enlistment to your first drill weekend looks like.
+      </p>
+    </div>
+    <div class="pipeline" data-reveal>
+      <div class="pipeline-step">
+        <div class="pipeline-num">01</div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-content">
+          <div class="pipeline-badge">Week 0</div>
+          <h3>Enlistment &amp; MEPS</h3>
+          <p>Meet with a recruiter, complete paperwork, and report to the Military Entrance Processing Station (MEPS) for a full medical exam, ASVAB, and oath of enlistment.</p>
+          <div class="pipeline-tags"><span>ASVAB Test</span><span>Physical Exam</span><span>MOS Selection</span></div>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-num">02</div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-content">
+          <div class="pipeline-badge">Weeks 1–10</div>
+          <h3>Basic Combat Training (BCT)</h3>
+          <p>Ten intensive weeks at Fort Jackson, SC or Fort Leonard Wood, MO. You'll develop combat skills, physical fitness, first aid, and land navigation. Graduation is a ceremony your family can attend.</p>
+          <div class="pipeline-tags"><span>Fort Jackson</span><span>Physical Training</span><span>Weapons Qual</span></div>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-num">03</div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-content">
+          <div class="pipeline-badge">Weeks 11–40+ (varies by MOS)</div>
+          <h3>Advanced Individual Training (AIT)</h3>
+          <p>Specialized school for your MOS. Length ranges from 4 weeks to 52 weeks. You'll earn hands-on skills, certifications, and credentials that transfer directly to civilian careers.</p>
+          <div class="pipeline-tags"><span>MOS-Specific</span><span>Civilian Certs</span><span>4–52 weeks</span></div>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-num">04</div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-content">
+          <div class="pipeline-badge">Monthly</div>
+          <h3>Drill Weekends</h3>
+          <p>Report to your local armory one weekend per month for unit training, maintenance, and readiness exercises. Stay sharp and keep earning while maintaining your civilian career.</p>
+          <div class="pipeline-tags"><span>1 Weekend/Month</span><span>Local Armory</span><span>Full Pay</span></div>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-num">05</div>
+        <div class="pipeline-connector last"></div>
+        <div class="pipeline-content">
+          <div class="pipeline-badge">Annual</div>
+          <h3>Annual Training (AT)</h3>
+          <p>Two weeks per year of full-time military training at locations across the U.S. or abroad. Units sharpen collective skills and prepare for deployment or state emergencies. Full pay + BAH provided.</p>
+          <div class="pipeline-tags"><span>2 Weeks/Year</span><span>Full Pay + BAH</span><span>USERRA Protected</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -412,6 +596,136 @@
 </section>
 
 
+<!-- ══ GUARD vs ACTIVE vs RESERVE ════════════════════════════ -->
+<section class="section compare-section" id="compare">
+  <div class="container">
+    <div style="text-align:center" data-reveal>
+      <div class="section-label" style="justify-content:center">Service Options</div>
+      <h2 class="section-h2">Which Branch<br>is Right for You?</h2>
+      <p style="font-size:.95rem;color:var(--tan-l);max-width:520px;margin:0 auto 3rem;font-weight:300;line-height:1.7">
+        Understand the key differences between the NJ Guard, Army Reserve, and Active Duty before you commit.
+      </p>
+    </div>
+    <div class="compare-grid" data-reveal>
+      <div class="compare-col compare-col-guard">
+        <div class="compare-header">
+          <div class="compare-icon">🛡️</div>
+          <div class="compare-title">NJ Army National Guard</div>
+          <div class="compare-subtitle">Part-Time · Dual Mission</div>
+        </div>
+        <ul class="compare-list">
+          <li class="yes">1 weekend/month + 2 weeks/year</li>
+          <li class="yes">Keep civilian job &amp; career</li>
+          <li class="yes">100% NJ tuition waiver</li>
+          <li class="yes">Up to $20K enlistment bonus</li>
+          <li class="yes">State &amp; federal deployment</li>
+          <li class="yes">Local armory — stay near home</li>
+          <li class="yes">Pension at age 60 (after 20 yr)</li>
+          <li class="neutral">Deployment risk: moderate</li>
+          <li class="no">No full-time BAH (except activation)</li>
+        </ul>
+        <div style="padding:0 1.5rem 1.5rem">
+          <button class="btn-primary" onclick="openModal('contact')" style="width:100%">Join the Guard →</button>
+        </div>
+      </div>
+      <div class="compare-col">
+        <div class="compare-header">
+          <div class="compare-icon">⚙️</div>
+          <div class="compare-title">Army Reserve</div>
+          <div class="compare-subtitle">Part-Time · Federal Only</div>
+        </div>
+        <ul class="compare-list">
+          <li class="yes">1 weekend/month + 2 weeks/year</li>
+          <li class="yes">Keep civilian job &amp; career</li>
+          <li class="neutral">GI Bill benefits (lower rate)</li>
+          <li class="yes">Enlistment bonuses available</li>
+          <li class="neutral">Federal deployments only</li>
+          <li class="neutral">Units may be farther from home</li>
+          <li class="yes">Pension at age 60 (after 20 yr)</li>
+          <li class="neutral">Deployment risk: moderate</li>
+          <li class="no">No NJ state tuition program</li>
+        </ul>
+      </div>
+      <div class="compare-col">
+        <div class="compare-header">
+          <div class="compare-icon">🎖️</div>
+          <div class="compare-title">Active Duty Army</div>
+          <div class="compare-subtitle">Full-Time · Regular Army</div>
+        </div>
+        <ul class="compare-list">
+          <li class="no">Full-time commitment required</li>
+          <li class="no">Civilian career paused</li>
+          <li class="yes">Full GI Bill (36 months)</li>
+          <li class="yes">Higher base pay</li>
+          <li class="yes">Full housing allowance (BAH)</li>
+          <li class="neutral">Assigned to any post worldwide</li>
+          <li class="yes">Pension after 20 yr (any age)</li>
+          <li class="neutral">Deployment risk: high</li>
+          <li class="yes">Full TRICARE coverage</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ ACFT FITNESS STANDARDS ════════════════════════════════ -->
+<section class="section fitness-section" id="fitness">
+  <div class="container">
+    <div data-reveal>
+      <div class="section-label">Physical Readiness</div>
+      <h2 class="section-h2">ACFT — Army Combat<br>Fitness Test</h2>
+      <p style="font-size:.92rem;color:var(--tan-l);max-width:560px;font-weight:300;line-height:1.75;margin-bottom:2.5rem">
+        The ACFT is the Army's physical fitness standard. You don't need to pass it before enlisting — your recruiter will help you prepare. Here's what to train toward:
+      </p>
+    </div>
+    <div class="acft-grid" data-reveal>
+      <div class="acft-event">
+        <div class="acft-icon">🏋️</div>
+        <h4>3-Rep Max Deadlift</h4>
+        <div class="acft-standard">140–340 lbs</div>
+        <p>Tests lower-body and grip strength. Practice squats, Romanian deadlifts, and leg press.</p>
+      </div>
+      <div class="acft-event">
+        <div class="acft-icon">🏋️‍♂️</div>
+        <h4>Standing Power Throw</h4>
+        <div class="acft-standard">4.5–12.5 meters</div>
+        <p>Tests explosive power with a 10 lb medicine ball throw. Work on hip drive and core.</p>
+      </div>
+      <div class="acft-event">
+        <div class="acft-icon">💪</div>
+        <h4>Hand-Release Push-Ups</h4>
+        <div class="acft-standard">10–60 reps (2 min)</div>
+        <p>Tests muscular endurance. Focus on full range of motion and core engagement.</p>
+      </div>
+      <div class="acft-event">
+        <div class="acft-icon">🏃</div>
+        <h4>Sprint-Drag-Carry</h4>
+        <div class="acft-standard">1:33–3:00 (50m × 5)</div>
+        <p>Tests anaerobic endurance across five 50m lanes — sprint, sled drag, lateral, carry, sprint.</p>
+      </div>
+      <div class="acft-event">
+        <div class="acft-icon">🤸</div>
+        <h4>Plank</h4>
+        <div class="acft-standard">2:09–3:40 hold</div>
+        <p>Tests core stability. Replaced sit-ups in the new standard. Keep a flat back and neutral spine.</p>
+      </div>
+      <div class="acft-event">
+        <div class="acft-icon">🏃‍♂️</div>
+        <h4>Two-Mile Run</h4>
+        <div class="acft-standard">13:30–21:00</div>
+        <p>Tests aerobic endurance. Build a base with 3–4 runs per week and gradually increase distance.</p>
+      </div>
+    </div>
+    <div class="acft-note" data-reveal>
+      <span class="acft-note-icon">💡</span>
+      <p>Don't worry if you can't meet all standards today. Recruiters provide fitness guidance and you'll have time to train before your report date.</p>
+      <button class="btn-outline" onclick="openModal('contact')">Get a Fitness Plan →</button>
+    </div>
+  </div>
+</section>
+
+
 <!-- ══ PHOTO GALLERY ═══════════════════════════════════════════ -->
 <section class="section gallery-section" id="gallery">
   <div class="container">
@@ -517,6 +831,130 @@
 </section>
 
 
+<!-- ══ FAQ ════════════════════════════════════════════════════ -->
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div style="text-align:center" data-reveal>
+      <div class="section-label" style="justify-content:center">Common Questions</div>
+      <h2 class="section-h2">Frequently Asked<br>Questions</h2>
+    </div>
+    <div class="faq-list" data-reveal>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">How much time does the Guard actually require?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a">
+          <p>The standard commitment is one weekend per month (Friday evening through Sunday) and two weeks of Annual Training each summer — roughly 39 days per year. Additional time may be required for schools, special training, or state activation during emergencies.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">Can I still go to college or keep my civilian job?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a">
+          <p>Yes — that's the entire point. USERRA legally protects your civilian job during Guard service. Most Guardsmen simultaneously work full-time and attend college. The NJNG 100% tuition waiver is specifically for members enrolled in NJ state schools.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">What is the minimum ASVAB score to enlist?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a">
+          <p>The minimum AFQT score to enlist in the Army National Guard is 31 with a high school diploma, and 50 with a GED. Specific MOS positions have additional line-score requirements. A higher score means more career options — free ASVAB prep resources are available through your recruiter.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">Will I be deployed overseas?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a">
+          <p>The Guard can and does deploy, but frequency is much lower than Active Duty. NJNG units have deployed to Iraq, Afghanistan, and peacekeeping missions. Most Guardsmen deploy 0–1 times during their career. You'll receive advance notice, and USERRA protects your job throughout.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">What disqualifies someone from joining?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a">
+          <p>Common disqualifiers include felony convictions, certain medical conditions, and failure to pass the ASVAB or physical. However, many conditions can be waived. Age, minor criminal history, education, and some medical issues all have waiver processes. Talk to a recruiter honestly — they're here to help, not to disqualify you.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">How long is the enlistment contract?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a">
+          <p>Standard enlistment contracts are 8 years total service obligation (TSO), typically split as 3–6 years active (drilling) with the remainder in the Individual Ready Reserve (IRR). Re-enlistment bonuses are available after your initial contract.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">What is the age limit to join the NJ Guard?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a">
+          <p>The general age range is 17–42 years old (parental consent required at 17). Prior service members may be eligible up to age 59, depending on remaining service years and break in service. Use our Eligibility Checker above or contact a recruiter for your specific situation.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">Do I get health insurance through the Guard?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a">
+          <p>Guard members have access to TRICARE Reserve Select, a low-cost premium-based health plan. During activation (30+ days of federal or state orders), you receive full TRICARE coverage at no cost. TRICARE Dental and Vision programs are also available year-round.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">What is the Split Training Option for high schoolers?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a">
+          <p>The Split Training Option lets juniors enlist and attend Basic Combat Training (BCT) the summer between junior and senior year, then complete AIT the following summer after graduation. You earn the enlistment bonus and Guard benefits while finishing high school on time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ UPCOMING EVENTS ════════════════════════════════════════ -->
+<section class="section events-section" id="events">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2rem" data-reveal>
+      <div>
+        <div class="section-label">Get Involved</div>
+        <h2 class="section-h2" style="margin-bottom:0">Upcoming<br>Events</h2>
+      </div>
+      <p style="font-size:.88rem;color:var(--tan);max-width:320px;font-weight:300;line-height:1.6">
+        Meet recruiters in person at open houses, job fairs, and community events across New Jersey.
+      </p>
+    </div>
+    <div class="events-grid" data-reveal>
+      <div class="event-card">
+        <div class="event-date"><div class="event-month">MAY</div><div class="event-day">10</div></div>
+        <div class="event-details">
+          <div class="event-type">Open House</div>
+          <h4>Teaneck Armory Recruiter Open House</h4>
+          <p>Meet the unit, tour the facility, and speak with soldiers and recruiters. No commitment required.</p>
+          <div class="event-meta"><span>📍 Teaneck, NJ</span><span>⏰ 10:00 AM – 2:00 PM</span></div>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><div class="event-month">MAY</div><div class="event-day">17</div></div>
+        <div class="event-details">
+          <div class="event-type">Job Fair</div>
+          <h4>NJ Veterans Career Expo — Meadowlands</h4>
+          <p>Connect with employers who actively seek Guard and veteran candidates. Resume review available.</p>
+          <div class="event-meta"><span>📍 East Rutherford, NJ</span><span>⏰ 9:00 AM – 4:00 PM</span></div>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><div class="event-month">MAY</div><div class="event-day">24</div></div>
+        <div class="event-details">
+          <div class="event-type">Community</div>
+          <h4>Armed Forces Day Ceremony — Trenton</h4>
+          <p>Join the NJNG for a public ceremony honoring all service members. Families welcome.</p>
+          <div class="event-meta"><span>📍 Trenton, NJ</span><span>⏰ 11:00 AM</span></div>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><div class="event-month">JUN</div><div class="event-day">07</div></div>
+        <div class="event-details">
+          <div class="event-type">Info Session</div>
+          <h4>ASVAB Prep Workshop — Edison Armory</h4>
+          <p>Free ASVAB preparation session for interested candidates. Study materials provided at no cost.</p>
+          <div class="event-meta"><span>📍 Edison, NJ</span><span>⏰ 1:00 PM – 5:00 PM</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2rem">
+      <button class="btn-outline" onclick="openModal('contact')">Contact Us About Events →</button>
+    </div>
+  </div>
+</section>
+
+
 <!-- ══ CTA BANNER ══════════════════════════════════════════════ -->
 <div class="cta-banner">
   <div class="container">
@@ -544,6 +982,20 @@
         <p style="margin-top:.75rem;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.15em;color:rgba(181,168,130,.4);text-transform:uppercase">
           Joint Force HQ – New Jersey<br>Lawrenceville, NJ 08648<br>📞 1-800-522-0936
         </p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1A2315"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="X / Twitter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
       </div>
       <div class="footer-col">
         <h4>Soldiers</h4>
